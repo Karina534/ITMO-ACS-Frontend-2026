@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "alexey@example.ru",
+      "password": "$2a$...",
+      "name": "Алексей Соколов",
+      "phone": "+7 (921) 123-45-67"
+    }
+  ],
+  "listings": [
+    {
+      "id": 1,
+      "userId": 2,
+      "title": "Современная квартира в центре",
+      "type": "Квартира",
+      "mode": "DAILY",
+      "location": "Санкт-Петербург",
+      "address": "ул. Рубинштейна, 15",
+      "price": 4500,
+      "image": "assets/flat-centre.png",
+      "description": "Светлая квартира в центре города",
+      "active": true
+    }
+  ],
+  "bookings": [
+    {
+      "id": 1,
+      "userId": 1,
+      "listingId": 1,
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-25",
+      "total": 13500,
+      "status": "pending"
+    }
+  ],
+  "chats": [
+    {
+      "id": 1,
+      "userId": 1,
+      "listingId": 1,
+      "personName": "Анна Смирнова"
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "chatId": 1,
+      "senderId": 1,
+      "text": "Здравствуйте! Хочу забронировать квартиру.",
+      "createdAt": "2026-10-18T15:35:00"
+    }
+  ]
+}

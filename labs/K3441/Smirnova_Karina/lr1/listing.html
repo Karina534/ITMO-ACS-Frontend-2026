@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Современная квартира в центре — RentSpace</title>
+    <!-- Bootstrap installation: https://getbootstrap.com/docs/6.0/getting-started/install/ -->
     <link href="assets/bootstrap.min.css" rel="stylesheet" />
     <link href="styles.css" rel="stylesheet" />
   </head>
@@ -16,11 +17,13 @@
           </span>
           RentSpace
         </a>
-        <nav class="rs-nav">
-          <a class="active" href="search.html">Найти жильё</a>
-          <a href="profile.html">Мои объекты</a>
-          <a href="activity.html">Сообщения и сделки</a>
+        <!-- Bootstrap Nav: https://getbootstrap.com/docs/6.0/components/nav/ -->
+        <nav class="nav rs-nav">
+          <a class="nav-link active" aria-current="page" href="search.html">Найти жильё</a>
+          <a class="nav-link" href="profile.html">Мои объекты</a>
+          <a class="nav-link" href="activity.html">Сообщения и сделки</a>
         </nav>
+        <!-- Bootstrap Dropdown: https://getbootstrap.com/docs/5.3/components/dropdowns/ -->
         <div class="dropdown">
           <button class="rs-account dropdown-toggle" data-bs-toggle="dropdown">
             <span class="rs-avatar">АС</span>
@@ -201,6 +204,7 @@
             <div data-daily>
               <div class="booking-price">4 500 ₽ / ночь</div>
               <hr />
+              <!-- Bootstrap Field: https://getbootstrap.com/docs/6.0/forms/field/ -->
               <label class="form-label mt-2" for="startDate">Дата заезда</label>
               <input class="form-control mb-3" id="startDate" type="date" value="2026-10-22" />
               <label class="form-label" for="endDate">Дата выезда</label>
@@ -272,6 +276,9 @@
         </div>
       </div>
     </footer>
+    <!-- Bootstrap Modal and Carousel:
+         https://getbootstrap.com/docs/5.3/components/modal/
+         https://getbootstrap.com/docs/6.0/components/carousel/ -->
     <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalTitle">
       <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content bg-dark">
@@ -355,6 +362,7 @@
         </div>
       </div>
     </div>
+    <!-- Bootstrap Modal: https://getbootstrap.com/docs/5.3/components/modal/ -->
     <div class="modal fade" id="bookingModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -380,8 +388,9 @@
         </div>
       </div>
     </div>
+    <!-- Bootstrap Toast: https://getbootstrap.com/docs/6.0/components/toasts/ -->
     <div class="toast-container position-fixed bottom-0 end-0 p-4">
-      <div class="toast" id="appToast">
+      <div class="toast" id="appToast" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-body">Готово</div>
       </div>
     </div>

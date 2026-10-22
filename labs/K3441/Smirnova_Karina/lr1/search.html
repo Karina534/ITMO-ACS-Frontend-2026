@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Поиск недвижимости — RentSpace</title>
+    <!-- Bootstrap installation: https://getbootstrap.com/docs/6.0/getting-started/install/ -->
     <link href="assets/bootstrap.min.css" rel="stylesheet" />
     <link href="styles.css" rel="stylesheet" />
   </head>
@@ -14,11 +15,13 @@
           <span class="rs-brand-mark"><img src="assets/house.svg" alt="" /></span>
           RentSpace
         </a>
-        <nav class="rs-nav">
-          <a class="active" href="search.html">Найти жильё</a>
-          <a href="profile.html">Мои объекты</a>
-          <a href="activity.html">Сообщения и сделки</a>
+        <!-- Bootstrap Nav: https://getbootstrap.com/docs/6.0/components/nav/ -->
+        <nav class="nav rs-nav">
+          <a class="nav-link active" aria-current="page" href="search.html">Найти жильё</a>
+          <a class="nav-link" href="profile.html">Мои объекты</a>
+          <a class="nav-link" href="activity.html">Сообщения и сделки</a>
         </nav>
+        <!-- Bootstrap Dropdown: https://getbootstrap.com/docs/5.3/components/dropdowns/ -->
         <div class="dropdown">
           <button class="rs-account dropdown-toggle" data-bs-toggle="dropdown">
             <span class="rs-avatar">АС</span>
@@ -40,6 +43,9 @@
       <div class="rs-container">
         <h1 class="rs-page-title">Найдите подходящее жильё</h1>
         <p class="rs-page-subtitle">Выберите способ аренды, расположение и подходящую стоимость</p>
+        <!-- Bootstrap Field and Grid, adapted from:
+             https://getbootstrap.com/docs/6.0/forms/field/
+             https://getbootstrap.com/docs/6.0/layout/grid/ -->
         <form class="rs-card search-filters" id="searchForm">
           <div class="row g-3 align-items-end">
             <div class="col-3">
@@ -49,7 +55,7 @@
                 <button type="button" data-rent-mode="MONTHLY">Помесячно</button>
               </div>
             </div>
-            <div class="col">
+            <div class="col form-field">
               <label class="form-label" for="location">Расположение</label>
               <input class="form-control" id="location" value="Санкт-Петербург" />
             </div>
@@ -108,9 +114,10 @@
             </div>
           </div>
         </div>
+        <!-- Bootstrap Card: https://getbootstrap.com/docs/6.0/components/card/ -->
         <div class="listing-grid" id="listingGrid">
           <article
-            class="rs-card property-card"
+            class="card rs-card property-card"
             data-mode="DAILY"
             data-type="Квартира"
             data-price="4500"
@@ -120,7 +127,7 @@
               <img src="assets/flat-centre.png" alt="Современная квартира" />
               <span class="rs-badge badge-blue">Посуточно</span>
             </div>
-            <div class="property-body">
+            <div class="card-body property-body">
               <div class="property-type">Квартира</div>
               <h3 class="property-title">Современная квартира в центре</h3>
               <div class="property-address">
@@ -135,7 +142,7 @@
             </div>
           </article>
           <article
-            class="rs-card property-card"
+            class="card rs-card property-card"
             data-mode="MONTHLY"
             data-type="Квартира"
             data-price="65000"
@@ -145,7 +152,7 @@
               <img src="assets/flat-river.png" alt="Квартира у набережной" />
               <span class="rs-badge badge-blue">Помесячно</span>
             </div>
-            <div class="property-body">
+            <div class="card-body property-body">
               <div class="property-type">Квартира</div>
               <h3 class="property-title">Квартира у набережной</h3>
               <div class="property-address">
@@ -158,7 +165,7 @@
             </div>
           </article>
           <article
-            class="rs-card property-card"
+            class="card rs-card property-card"
             data-mode="DAILY"
             data-type="Студия"
             data-price="4200"
@@ -168,7 +175,7 @@
               <img src="assets/studio.png" alt="Студия" />
               <span class="rs-badge badge-blue">Посуточно</span>
             </div>
-            <div class="property-body">
+            <div class="card-body property-body">
               <div class="property-type">Студия</div>
               <h3 class="property-title">Студия на Петроградской</h3>
               <div class="property-address">
@@ -183,7 +190,7 @@
             </div>
           </article>
           <article
-            class="rs-card property-card"
+            class="card rs-card property-card"
             data-mode="MONTHLY"
             data-type="Дом"
             data-price="90000"
@@ -193,7 +200,7 @@
               <img src="assets/house.png" alt="Дом" />
               <span class="rs-badge badge-blue">Помесячно</span>
             </div>
-            <div class="property-body">
+            <div class="card-body property-body">
               <div class="property-type">Дом</div>
               <h3 class="property-title">Дом в тихом пригороде</h3>
               <div class="property-address">
@@ -208,7 +215,7 @@
             </div>
           </article>
           <article
-            class="rs-card property-card"
+            class="card rs-card property-card"
             data-mode="DAILY"
             data-type="Комната"
             data-price="2200"
@@ -218,7 +225,7 @@
               <img src="assets/room.png" alt="Комната" />
               <span class="rs-badge badge-blue">Посуточно</span>
             </div>
-            <div class="property-body">
+            <div class="card-body property-body">
               <div class="property-type">Комната</div>
               <h3 class="property-title">Комната на Васильевском</h3>
               <div class="property-address">
@@ -233,7 +240,7 @@
             </div>
           </article>
           <article
-            class="rs-card property-card"
+            class="card rs-card property-card"
             data-mode="DAILY"
             data-type="Квартира"
             data-price="6000"
@@ -243,7 +250,7 @@
               <img src="assets/flat-garden.png" alt="Квартира" />
               <span class="rs-badge badge-blue">Посуточно</span>
             </div>
-            <div class="property-body">
+            <div class="card-body property-body">
               <div class="property-type">Квартира</div>
               <h3 class="property-title">Квартира у Таврического сада</h3>
               <div class="property-address">

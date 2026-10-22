@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Регистрация — RentSpace</title>
+    <!-- Bootstrap installation: https://getbootstrap.com/docs/6.0/getting-started/install/ -->
     <link href="assets/bootstrap.min.css" rel="stylesheet" />
     <link href="styles.css" rel="stylesheet" />
   </head>
@@ -23,17 +24,18 @@
           </a>
           <h2>Регистрация</h2>
           <p class="intro">Создайте аккаунт, чтобы найти жильё и общаться с владельцами</p>
-          <div class="mb-3">
+          <!-- Bootstrap Field: https://getbootstrap.com/docs/6.0/forms/field/ -->
+          <div class="form-field mb-3">
             <label class="form-label" for="username">Имя пользователя</label>
             <input class="form-control" id="username" maxlength="50" placeholder="Как к вам обращаться" required />
             <div class="form-text">Не более 50 символов</div>
           </div>
-          <div class="mb-3">
+          <div class="form-field mb-3">
             <label class="form-label" for="registerEmail">Электронная почта</label>
             <input class="form-control" id="registerEmail" type="email" placeholder="name@example.ru" required />
             <div class="form-text">Укажите email в формате name@example.ru</div>
           </div>
-          <div class="mb-3">
+          <div class="form-field mb-3">
             <label class="form-label" for="phone">Телефон</label>
             <input
               class="form-control"
@@ -48,7 +50,7 @@
             />
             <div class="form-text">Номер в формате 89134123432</div>
           </div>
-          <div class="mb-3">
+          <div class="form-field mb-3">
             <label class="form-label" for="registerPassword">Пароль</label>
             <div class="input-group">
               <input
@@ -63,7 +65,7 @@
             </div>
             <div class="form-text">Минимум 8 символов</div>
           </div>
-          <div class="mb-3">
+          <div class="form-field mb-3">
             <label class="form-label" for="repeatPassword">Повторите пароль</label>
             <div class="input-group">
               <input
@@ -91,6 +93,7 @@
         <div class="auth-footer">© 2026 RentSpace</div>
       </section>
     </main>
+    <!-- Bootstrap Modal: https://getbootstrap.com/docs/5.3/components/modal/ -->
     <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">

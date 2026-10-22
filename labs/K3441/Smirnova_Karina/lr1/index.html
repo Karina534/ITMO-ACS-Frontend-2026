@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Вход — RentSpace</title>
+    <!-- Bootstrap installation: https://getbootstrap.com/docs/6.0/getting-started/install/ -->
     <link href="assets/bootstrap.min.css" rel="stylesheet" />
     <link href="styles.css" rel="stylesheet" />
   </head>
@@ -23,12 +24,13 @@
           </a>
           <h2>Вход</h2>
           <p class="intro">Войдите, чтобы управлять арендой и сообщениями</p>
-          <div class="mb-4">
+          <!-- Bootstrap Field: https://getbootstrap.com/docs/6.0/forms/field/ -->
+          <div class="form-field mb-4">
             <label class="form-label" for="loginEmail">Электронная почта</label>
             <input class="form-control" id="loginEmail" type="email" placeholder="name@example.ru" required />
             <div class="invalid-feedback">Введите корректную электронную почту.</div>
           </div>
-          <div class="mb-3">
+          <div class="form-field mb-3">
             <label class="form-label" for="loginPassword">Пароль</label>
             <div class="input-group">
               <input

@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Bootstrap Toast API: https://getbootstrap.com/docs/6.0/components/toasts/
   const toastElement = document.getElementById('appToast');
   const showToast = (message) => {
     if (!toastElement || !window.bootstrap) return;
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       form.classList.add('was-validated');
       if (!form.checkValidity()) return;
 
+      // Bootstrap Modal API: https://getbootstrap.com/docs/5.3/components/modal/
       const modalId = form.dataset.successModal;
       if (modalId) bootstrap.Modal.getOrCreateInstance(document.getElementById(modalId)).show();
       else if (form.dataset.redirect) window.location.href = form.dataset.redirect;
@@ -123,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Bootstrap Carousel API: https://getbootstrap.com/docs/6.0/components/carousel/
   document.querySelectorAll('[data-gallery-index]').forEach((trigger) => trigger.addEventListener('click', () => {
     const carousel = document.getElementById('galleryCarousel');
     if (carousel && window.bootstrap) {
@@ -222,6 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.deal-card').forEach((card) => card.hidden = filter !== 'all' && card.dataset.status !== filter);
   }));
 
+  // Bootstrap Tab API: https://getbootstrap.com/docs/6.0/components/tab/
   document.querySelectorAll('a[href="#messages"]').forEach((link) => link.addEventListener('click', (event) => {
     event.preventDefault();
     const messagesTab = document.querySelector('[data-bs-target="#messages"]');

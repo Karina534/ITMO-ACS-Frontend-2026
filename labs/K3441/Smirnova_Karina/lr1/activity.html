@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Сообщения и сделки — RentSpace</title>
+    <!-- Bootstrap installation: https://getbootstrap.com/docs/6.0/getting-started/install/ -->
     <link href="assets/bootstrap.min.css" rel="stylesheet" />
     <link href="styles.css" rel="stylesheet" />
   </head>
@@ -14,11 +15,13 @@
           <span class="rs-brand-mark"><img src="assets/house.svg" alt="" /></span>
           RentSpace
         </a>
-        <nav class="rs-nav">
-          <a href="search.html">Найти жильё</a>
-          <a href="profile.html">Мои объекты</a>
-          <a class="active" href="activity.html">Сообщения и сделки</a>
+        <!-- Bootstrap Nav: https://getbootstrap.com/docs/6.0/components/nav/ -->
+        <nav class="nav rs-nav">
+          <a class="nav-link" href="search.html">Найти жильё</a>
+          <a class="nav-link" href="profile.html">Мои объекты</a>
+          <a class="nav-link active" aria-current="page" href="activity.html">Сообщения и сделки</a>
         </nav>
+        <!-- Bootstrap Dropdown: https://getbootstrap.com/docs/5.3/components/dropdowns/ -->
         <div class="dropdown">
           <button class="rs-account dropdown-toggle" data-bs-toggle="dropdown">
             <span class="rs-avatar">АС</span>
@@ -39,6 +42,9 @@
       <div class="rs-container">
         <h1 class="rs-page-title">Сообщения и сделки</h1>
         <p class="rs-page-subtitle">Обсуждайте аренду и следите за статусами заявок</p>
+        <!-- Bootstrap Nav and Tabs:
+             https://getbootstrap.com/docs/6.0/components/nav/
+             https://getbootstrap.com/docs/6.0/components/tab/ -->
         <ul class="nav rs-tabs" role="tablist">
           <li class="nav-item">
             <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#messages" type="button">
@@ -54,7 +60,8 @@
             <div class="rs-card messages-shell">
               <div class="messages-grid">
                 <aside class="chat-list">
-                  <div class="chat-search">
+                  <!-- Bootstrap Field: https://getbootstrap.com/docs/6.0/forms/field/ -->
+                  <div class="chat-search form-field">
                     <input class="form-control" placeholder="Поиск по чатам" />
                   </div>
                   <button
@@ -152,7 +159,8 @@
                       Заявка на 22–25 октября · 13 500 ₽ · Ожидает подтверждения
                     </div>
                   </div>
-                  <form class="chat-compose" id="messageForm">
+                  <!-- Bootstrap Field: https://getbootstrap.com/docs/6.0/forms/field/ -->
+                  <form class="chat-compose form-field" id="messageForm">
                     <textarea class="form-control" id="messageInput" placeholder="Введите сообщение"></textarea>
                     <div class="d-flex justify-content-between align-items-center mt-2">
                       <span class="rs-muted rs-small">Сообщение владельцу</span>
@@ -307,8 +315,9 @@
         </div>
       </div>
     </footer>
+    <!-- Bootstrap Toast: https://getbootstrap.com/docs/6.0/components/toasts/ -->
     <div class="toast-container position-fixed bottom-0 end-0 p-4">
-      <div class="toast" id="appToast">
+      <div class="toast" id="appToast" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-body">Готово</div>
       </div>
     </div>

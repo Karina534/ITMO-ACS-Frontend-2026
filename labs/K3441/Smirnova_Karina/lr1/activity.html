@@ -24,15 +24,15 @@
         <!-- Bootstrap Dropdown: https://getbootstrap.com/docs/5.3/components/dropdowns/ -->
         <div class="dropdown">
           <button class="rs-account dropdown-toggle" data-bs-toggle="dropdown">
-            <span class="rs-avatar">АС</span>
-            Алексей
+            <span class="rs-avatar" data-current-user-avatar>АС</span>
+            <span data-current-user-name>Алексей</span>
           </button>
           <ul class="dropdown-menu dropdown-menu-end">
             <li>
               <a class="dropdown-item" href="profile.html">Личный кабинет</a>
             </li>
             <li>
-              <a class="dropdown-item text-danger" href="index.html">Выйти</a>
+              <a class="dropdown-item text-danger" href="index.html" data-logout>Выйти</a>
             </li>
           </ul>
         </div>
@@ -59,7 +59,7 @@
           <section class="tab-pane fade show active" id="messages">
             <div class="rs-card messages-shell">
               <div class="messages-grid">
-                <aside class="chat-list">
+                <aside class="chat-list" id="chatList">
                   <!-- Bootstrap Field: https://getbootstrap.com/docs/6.0/forms/field/ -->
                   <div class="chat-search form-field">
                     <input class="form-control" placeholder="Поиск по чатам" />
@@ -67,6 +67,7 @@
                   <button
                     class="chat-item active"
                     data-chat-id="centre"
+                    data-listing-id="1"
                     data-person="Анна Смирнова"
                     data-property="Современная квартира в центре"
                   >
@@ -83,6 +84,7 @@
                   <button
                     class="chat-item"
                     data-chat-id="river"
+                    data-listing-id="2"
                     data-person="Анна Смирнова"
                     data-property="Квартира у набережной"
                   >
@@ -100,6 +102,7 @@
                   <button
                     class="chat-item"
                     data-chat-id="house"
+                    data-listing-id="4"
                     data-person="Иван Петров"
                     data-property="Дом в тихом пригороде"
                   >
@@ -117,6 +120,7 @@
                   <button
                     class="chat-item"
                     data-chat-id="garden"
+                    data-listing-id="6"
                     data-person="Ольга Белова"
                     data-property="Квартира у Таврического сада"
                   >
@@ -138,7 +142,9 @@
                     <div>
                       <strong class="d-block fs-6" id="chatPerson">Анна Смирнова</strong>
                       <span class="rs-muted rs-small d-block" id="chatProperty">Современная квартира в центре</span>
-                      <a class="text-primary rs-small" href="listing.html">Перейти к объявлению</a>
+                      <a class="text-primary rs-small" id="chatListingLink" href="listing.html?id=1">
+                        Перейти к объявлению
+                      </a>
                     </div>
                   </div>
                   <div class="chat-history" id="chatHistory">
@@ -182,9 +188,9 @@
               <button class="btn btn-outline-primary" data-deal-filter="completed">Завершённые</button>
               <button class="btn btn-outline-primary" data-deal-filter="canceled">Отменённые</button>
             </div>
-            <p class="rs-muted rs-small mt-3">Всего 7 сделок · 4 бронирования и 3 обращения</p>
-            <div class="deals-list">
-              <article class="rs-card deal-card" data-status="pending">
+            <p class="rs-muted rs-small mt-3" id="dealsCount">Загрузка сделок...</p>
+            <div class="deals-list" id="dealsList">
+              <article class="rs-card deal-card" data-status="pending" data-deal-id="centre-booking">
                 <img src="assets/flat-centre.png" alt="" />
                 <div>
                   <div class="d-flex gap-2">
@@ -199,8 +205,9 @@
                 <div class="deal-actions">
                   <span class="rs-badge badge-orange">Ожидает подтверждения</span>
                   <span class="rs-badge badge-orange">Ожидает оплаты</span>
-                  <a class="btn btn-outline-primary" href="listing.html">Открыть объект</a>
+                  <a class="btn btn-outline-primary" href="listing.html?id=1">Открыть объект</a>
                   <a class="btn btn-link text-decoration-none" href="#messages">Перейти в чат</a>
+                  <button class="btn btn-outline-danger" type="button" data-cancel-deal>Отменить</button>
                 </div>
               </article>
               <article class="rs-card deal-card" data-status="active">
@@ -218,11 +225,11 @@
                 <div class="deal-actions">
                   <span class="rs-badge badge-green">Подтверждено</span>
                   <span class="rs-badge badge-green">Оплачено</span>
-                  <a class="btn btn-outline-primary" href="listing.html">Открыть объект</a>
+                  <a class="btn btn-outline-primary" href="listing.html?id=6">Открыть объект</a>
                   <a class="btn btn-link text-decoration-none" href="#messages">Перейти в чат</a>
                 </div>
               </article>
-              <article class="rs-card deal-card" data-status="pending">
+              <article class="rs-card deal-card" data-status="pending" data-deal-id="house-request">
                 <img src="assets/house.png" alt="" />
                 <div>
                   <div class="d-flex gap-2">
@@ -236,8 +243,9 @@
                 </div>
                 <div class="deal-actions">
                   <span class="rs-badge badge-orange">Новое обращение</span>
-                  <a class="btn btn-outline-primary" href="listing.html?mode=monthly">Открыть объект</a>
+                  <a class="btn btn-outline-primary" href="listing.html?id=4">Открыть объект</a>
                   <a class="btn btn-link text-decoration-none" href="#messages">Перейти в чат</a>
+                  <button class="btn btn-outline-danger" type="button" data-cancel-deal>Отменить</button>
                 </div>
               </article>
               <article class="rs-card deal-card" data-status="active">
@@ -254,7 +262,7 @@
                 </div>
                 <div class="deal-actions">
                   <span class="rs-badge badge-blue">В работе</span>
-                  <a class="btn btn-outline-primary" href="listing.html?mode=monthly">Открыть объект</a>
+                  <a class="btn btn-outline-primary" href="listing.html?id=2">Открыть объект</a>
                   <a class="btn btn-link text-decoration-none" href="#messages">Перейти в чат</a>
                 </div>
               </article>
@@ -273,7 +281,7 @@
                 <div class="deal-actions">
                   <span class="rs-badge badge-red">Отменено</span>
                   <span class="rs-badge badge-red">Платёж отменён</span>
-                  <a class="btn btn-outline-primary" href="listing.html">Открыть объект</a>
+                  <a class="btn btn-outline-primary" href="listing.html?id=5">Открыть объект</a>
                 </div>
               </article>
               <article class="rs-card deal-card" data-status="completed">
@@ -291,7 +299,7 @@
                 <div class="deal-actions">
                   <span class="rs-badge badge-gray">Завершено</span>
                   <span class="rs-badge badge-green">Оплачено</span>
-                  <a class="btn btn-outline-primary" href="listing.html">Открыть объект</a>
+                  <a class="btn btn-outline-primary" href="listing.html?id=1">Открыть объект</a>
                 </div>
               </article>
             </div>
@@ -322,8 +330,9 @@
       </div>
     </div>
     <script src="assets/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="api.js"></script>
-    <script src="app.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/activity.js"></script>
   </body>
 </html>

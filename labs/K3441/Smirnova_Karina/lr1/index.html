@@ -17,7 +17,7 @@
         </div>
       </section>
       <section class="auth-panel">
-        <form class="auth-form needs-validation" data-redirect="search.html" novalidate>
+        <form id="loginForm" class="auth-form needs-validation" novalidate>
           <a class="rs-brand" href="index.html">
             <span class="rs-brand-mark"><img src="assets/house.svg" alt="" /></span>
             RentSpace
@@ -48,9 +48,9 @@
                 aria-label="Показать пароль"
               >
               </button>
-            </div>
-            <div class="invalid-feedback">
-              Пароль должен содержать минимум 8 символов.
+              <div class="invalid-feedback" id="loginPasswordFeedback">
+                Пароль должен содержать минимум 8 символов.
+              </div>
             </div>
           </div>
           <div class="form-check mb-4">
@@ -67,8 +67,9 @@
       </section>
     </main>
     <script src="assets/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="api.js"></script>
-    <script src="app.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/auth.js"></script>
   </body>
 </html>

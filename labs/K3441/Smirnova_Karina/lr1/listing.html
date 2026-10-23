@@ -26,15 +26,15 @@
         <!-- Bootstrap Dropdown: https://getbootstrap.com/docs/5.3/components/dropdowns/ -->
         <div class="dropdown">
           <button class="rs-account dropdown-toggle" data-bs-toggle="dropdown">
-            <span class="rs-avatar">АС</span>
-            Алексей
+            <span class="rs-avatar" data-current-user-avatar>АС</span>
+            <span data-current-user-name>Алексей</span>
           </button>
           <ul class="dropdown-menu dropdown-menu-end">
             <li>
               <a class="dropdown-item" href="profile.html">Личный кабинет</a>
             </li>
             <li>
-              <a class="dropdown-item text-danger" href="index.html">Выйти</a>
+              <a class="dropdown-item text-danger" href="index.html" data-logout>Выйти</a>
             </li>
           </ul>
         </div>
@@ -55,7 +55,7 @@
           <div class="d-flex gap-2">
             <span class="rs-badge badge-blue" data-daily>Посуточно</span>
             <span class="rs-badge badge-blue" data-monthly>Помесячно</span>
-            <span class="rs-badge badge-gray">Квартира</span>
+            <span class="rs-badge badge-gray" data-listing-type>Квартира</span>
           </div>
         </section>
         <section class="gallery-grid">
@@ -112,31 +112,11 @@
           <div class="details-stack">
             <article class="rs-card details-card">
               <h2 class="rs-section-title mb-3">Об объекте</h2>
-              <div data-daily>
-                <p>
-                  Приглашаем остановиться в современной квартире в самом центре Санкт-Петербурга. Светлый интерьер в
-                  тёплых оттенках создаёт спокойную атмосферу, в которой приятно отдохнуть после насыщенного дня в
-                  городе.
-                </p>
-                <p>
-                  Квартира подойдёт для короткого путешествия или деловой поездки. Напишите владельцу перед
-                  бронированием, если хотите уточнить условия заезда.
-                </p>
-              </div>
-              <div data-monthly>
-                <p>
-                  Светлая квартира у набережной Фонтанки для долгосрочной аренды. Спокойный современный интерьер и
-                  тёплая домашняя атмосфера.
-                </p>
-                <p>
-                  Сдаётся от 6 месяцев. Условия и удобное время просмотра можно обсудить с владельцем в чате или по
-                  телефону.
-                </p>
-              </div>
+              <p data-listing-description>Загрузка описания объекта...</p>
               <hr />
               <div class="detail-row">
                 <span class="label">Тип недвижимости</span>
-                <strong>Квартира</strong>
+                <strong data-listing-type>Квартира</strong>
               </div>
               <div class="detail-row">
                 <span class="label">Формат аренды</span>
@@ -161,7 +141,7 @@
               <div data-daily>
                 <div class="detail-row">
                   <span class="label">Стоимость за ночь</span>
-                  <strong>4 500 ₽</strong>
+                  <strong data-listing-price>4 500 ₽ / ночь</strong>
                 </div>
                 <div class="detail-row">
                   <span class="label">Минимум ночей</span>
@@ -183,7 +163,7 @@
               <div data-monthly>
                 <div class="detail-row">
                   <span class="label">Стоимость за месяц</span>
-                  <strong>65 000 ₽</strong>
+                  <strong data-listing-price>65 000 ₽ / месяц</strong>
                 </div>
                 <div class="detail-row">
                   <span class="label">Залог</span>
@@ -202,7 +182,7 @@
           </div>
           <aside class="rs-card booking-card">
             <div data-daily>
-              <div class="booking-price">4 500 ₽ / ночь</div>
+              <div class="booking-price" data-listing-price>4 500 ₽ / ночь</div>
               <hr />
               <!-- Bootstrap Field: https://getbootstrap.com/docs/6.0/forms/field/ -->
               <label class="form-label mt-2" for="startDate">Дата заезда</label>
@@ -229,7 +209,7 @@
               <p class="rs-muted rs-small text-center mt-3 mb-0">Владелец подтвердит доступность выбранных дат.</p>
             </div>
             <div data-monthly>
-              <div class="booking-price">65 000 ₽ / месяц</div>
+              <div class="booking-price" data-listing-price>65 000 ₽ / месяц</div>
               <hr />
               <div class="detail-row">
                 <span class="label">Залог</span>
@@ -371,10 +351,10 @@
             <button class="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
-            <p>Современная квартира в центре</p>
+            <p data-booking-title>Современная квартира в центре</p>
             <div class="detail-row">
               <span class="label">Период</span>
-              <strong>22–25 октября 2026</strong>
+              <strong data-booking-period>2026-10-22 — 2026-10-25</strong>
             </div>
             <div class="detail-row">
               <span class="label">Итого</span>
@@ -395,8 +375,9 @@
       </div>
     </div>
     <script src="assets/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="api.js"></script>
-    <script src="app.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/listing.js"></script>
   </body>
 </html>

@@ -24,8 +24,8 @@
         <!-- Bootstrap Dropdown: https://getbootstrap.com/docs/5.3/components/dropdowns/ -->
         <div class="dropdown">
           <button class="rs-account dropdown-toggle" data-bs-toggle="dropdown">
-            <span class="rs-avatar">АС</span>
-            Алексей
+            <span class="rs-avatar" data-current-user-avatar>АС</span>
+            <span data-current-user-name>Алексей</span>
           </button>
           <ul class="dropdown-menu dropdown-menu-end">
             <li>
@@ -33,7 +33,7 @@
             </li>
             <li><hr class="dropdown-divider" /></li>
             <li>
-              <a class="dropdown-item text-danger" href="index.html">Выйти</a>
+              <a class="dropdown-item text-danger" href="index.html" data-logout>Выйти</a>
             </li>
           </ul>
         </div>
@@ -101,7 +101,7 @@
           </div>
         </form>
         <div class="results-toolbar">
-          <h2 class="fs-5 fw-semibold m-0" id="resultsCount">Найдено 6 объектов</h2>
+          <h2 class="fs-5 fw-semibold m-0" id="resultsCount">Загрузка объектов...</h2>
           <div class="d-flex gap-3">
             <select class="form-select" id="sortOrder" style="width: 240px" aria-label="Порядок отображения">
               <option value="recommended">Сначала рекомендуемые</option>
@@ -114,161 +114,46 @@
             </div>
           </div>
         </div>
-        <!-- Bootstrap Card: https://getbootstrap.com/docs/6.0/components/card/ -->
-        <div class="listing-grid" id="listingGrid">
-          <article
-            class="card rs-card property-card"
-            data-mode="DAILY"
-            data-type="Квартира"
-            data-price="4500"
-            data-location="санкт-петербург"
-          >
+        <div class="listing-grid" id="listingGrid"></div>
+
+        <template id="listingCardTemplate">
+          <article class="card rs-card property-card">
             <div class="property-cover">
-              <img src="assets/flat-centre.png" alt="Современная квартира" />
-              <span class="rs-badge badge-blue">Посуточно</span>
+              <img class="property-image" src="" alt="" />
+              <span class="rs-badge badge-blue property-mode"></span>
             </div>
+
             <div class="card-body property-body">
-              <div class="property-type">Квартира</div>
-              <h3 class="property-title">Современная квартира в центре</h3>
+              <div class="property-type"></div>
+
+              <h3 class="property-title"></h3>
+
               <div class="property-address">
                 <img src="assets/map-pin.svg" alt="" />
-                Санкт-Петербург, ул. Рубинштейна, 15
+                <span class="property-address-text"></span>
               </div>
-              <div class="property-price">4 500 ₽ / ночь</div>
-              <p class="property-description">
-                Светлый интерьер и спокойная атмосфера для короткой поездки в Петербург.
-              </p>
-              <a class="btn btn-outline-primary w-100" href="listing.html">Подробнее</a>
+
+              <div class="property-price"></div>
+
+              <p class="property-description"></p>
+
+              <a class="btn btn-outline-primary w-100 property-link">
+                Подробнее
+              </a>
             </div>
           </article>
-          <article
-            class="card rs-card property-card"
-            data-mode="MONTHLY"
-            data-type="Квартира"
-            data-price="65000"
-            data-location="санкт-петербург"
-          >
-            <div class="property-cover">
-              <img src="assets/flat-river.png" alt="Квартира у набережной" />
-              <span class="rs-badge badge-blue">Помесячно</span>
-            </div>
-            <div class="card-body property-body">
-              <div class="property-type">Квартира</div>
-              <h3 class="property-title">Квартира у набережной</h3>
-              <div class="property-address">
-                <img src="assets/map-pin.svg" alt="" />
-                Санкт-Петербург, наб. реки Фонтанки, 54
-              </div>
-              <div class="property-price">65 000 ₽ / месяц</div>
-              <p class="property-description">Уютное пространство для долгой аренды. Владелец всегда на связи.</p>
-              <a class="btn btn-outline-primary w-100" href="listing.html?mode=monthly">Подробнее</a>
-            </div>
-          </article>
-          <article
-            class="card rs-card property-card"
-            data-mode="DAILY"
-            data-type="Студия"
-            data-price="4200"
-            data-location="санкт-петербург"
-          >
-            <div class="property-cover">
-              <img src="assets/studio.png" alt="Студия" />
-              <span class="rs-badge badge-blue">Посуточно</span>
-            </div>
-            <div class="card-body property-body">
-              <div class="property-type">Студия</div>
-              <h3 class="property-title">Студия на Петроградской</h3>
-              <div class="property-address">
-                <img src="assets/map-pin.svg" alt="" />
-                Санкт-Петербург, Большой пр. П.С., 48
-              </div>
-              <div class="property-price">4 200 ₽ / ночь</div>
-              <p class="property-description">
-                Лаконичный современный интерьер. Удобный вариант для знакомства с городом.
-              </p>
-              <a class="btn btn-outline-primary w-100" href="listing.html">Подробнее</a>
-            </div>
-          </article>
-          <article
-            class="card rs-card property-card"
-            data-mode="MONTHLY"
-            data-type="Дом"
-            data-price="90000"
-            data-location="санкт-петербург"
-          >
-            <div class="property-cover">
-              <img src="assets/house.png" alt="Дом" />
-              <span class="rs-badge badge-blue">Помесячно</span>
-            </div>
-            <div class="card-body property-body">
-              <div class="property-type">Дом</div>
-              <h3 class="property-title">Дом в тихом пригороде</h3>
-              <div class="property-address">
-                <img src="assets/map-pin.svg" alt="" />
-                Санкт-Петербург, Сестрорецк, ул. Лесная, 8
-              </div>
-              <div class="property-price">90 000 ₽ / месяц</div>
-              <p class="property-description">
-                Спокойное место вдали от городской суеты. Доступно для длительной аренды.
-              </p>
-              <a class="btn btn-outline-primary w-100" href="listing.html?mode=monthly">Подробнее</a>
-            </div>
-          </article>
-          <article
-            class="card rs-card property-card"
-            data-mode="DAILY"
-            data-type="Комната"
-            data-price="2200"
-            data-location="санкт-петербург"
-          >
-            <div class="property-cover">
-              <img src="assets/room.png" alt="Комната" />
-              <span class="rs-badge badge-blue">Посуточно</span>
-            </div>
-            <div class="card-body property-body">
-              <div class="property-type">Комната</div>
-              <h3 class="property-title">Комната на Васильевском</h3>
-              <div class="property-address">
-                <img src="assets/map-pin.svg" alt="" />
-                Санкт-Петербург, 7-я линия В.О., 22
-              </div>
-              <div class="property-price">2 200 ₽ / ночь</div>
-              <p class="property-description">
-                Нейтральный интерьер в исторической части города. Для коротких поездок.
-              </p>
-              <a class="btn btn-outline-primary w-100" href="listing.html">Подробнее</a>
-            </div>
-          </article>
-          <article
-            class="card rs-card property-card"
-            data-mode="DAILY"
-            data-type="Квартира"
-            data-price="6000"
-            data-location="санкт-петербург"
-          >
-            <div class="property-cover">
-              <img src="assets/flat-garden.png" alt="Квартира" />
-              <span class="rs-badge badge-blue">Посуточно</span>
-            </div>
-            <div class="card-body property-body">
-              <div class="property-type">Квартира</div>
-              <h3 class="property-title">Квартира у Таврического сада</h3>
-              <div class="property-address">
-                <img src="assets/map-pin.svg" alt="" />
-                Санкт-Петербург, Кирочная ул., 38
-              </div>
-              <div class="property-price">6 000 ₽ / ночь</div>
-              <p class="property-description">
-                Современное пространство в спокойном районе. Всё для комфортной аренды.
-              </p>
-              <a class="btn btn-outline-primary w-100" href="listing.html">Подробнее</a>
-            </div>
-          </article>
-        </div>
+        </template>
+
         <div class="rs-card empty-state mt-4" id="emptyResults" hidden>
           <h2 class="fs-4">По заданным параметрам ничего не найдено</h2>
-          <p class="rs-muted">Попробуйте изменить расположение, тип недвижимости или диапазон цены.</p>
-          <button class="btn btn-primary" type="button" onclick="document.getElementById('resetFilters').click()">
+          <p class="rs-muted">
+            Попробуйте изменить расположение, тип недвижимости или диапазон цены.
+          </p>
+          <button
+                  class="btn btn-primary"
+                  id="emptyResetFilters"
+                  type="button"
+          >
             Сбросить фильтры
           </button>
         </div>
@@ -299,8 +184,9 @@
       </div>
     </footer>
     <script src="assets/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="api.js"></script>
-    <script src="app.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/search.js"></script>
   </body>
 </html>

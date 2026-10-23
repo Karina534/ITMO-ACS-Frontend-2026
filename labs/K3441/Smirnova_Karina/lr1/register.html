@@ -17,7 +17,7 @@
         </div>
       </section>
       <section class="auth-panel">
-        <form class="auth-form needs-validation" data-success-modal="successModal" novalidate>
+        <form id="registerForm" class="auth-form needs-validation" novalidate>
           <a class="rs-brand" href="index.html">
             <span class="rs-brand-mark"><img src="assets/house.svg" alt="" /></span>
             RentSpace
@@ -102,8 +102,7 @@
             <button class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
           </div>
           <div class="modal-body">
-            <p class="mb-2">Мы отправили письмо для подтверждения электронной почты.</p>
-            <span class="rs-badge badge-orange">Почта не подтверждена</span>
+            <p class="mb-0">Теперь вы можете перейти на страницу входа.</p>
           </div>
           <div class="modal-footer">
             <a class="btn btn-primary px-4" href="index.html">Перейти ко входу</a>
@@ -112,8 +111,9 @@
       </div>
     </div>
     <script src="assets/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="api.js"></script>
-    <script src="app.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/auth.js"></script>
   </body>
 </html>

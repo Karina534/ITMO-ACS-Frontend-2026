@@ -24,15 +24,15 @@
         <!-- Bootstrap Dropdown: https://getbootstrap.com/docs/5.3/components/dropdowns/ -->
         <div class="dropdown">
           <button class="rs-account dropdown-toggle" data-bs-toggle="dropdown">
-            <span class="rs-avatar">АС</span>
-            Алексей
+            <span class="rs-avatar" data-current-user-avatar>АС</span>
+            <span data-current-user-name>Алексей</span>
           </button>
           <ul class="dropdown-menu dropdown-menu-end">
             <li>
               <a class="dropdown-item" href="profile.html">Личный кабинет</a>
             </li>
             <li>
-              <a class="dropdown-item text-danger" href="index.html">Выйти</a>
+              <a class="dropdown-item text-danger" href="index.html" data-logout>Выйти</a>
             </li>
           </ul>
         </div>
@@ -44,10 +44,10 @@
         <p class="rs-page-subtitle">Профиль, аренда и ваши объявления — в одном месте</p>
         <section class="rs-card profile-card">
           <div class="profile-row">
-            <div class="rs-avatar">АС</div>
+            <div class="rs-avatar" data-current-user-avatar>АС</div>
             <div class="profile-info">
               <h2 id="profileName">Алексей Соколов</h2>
-              <div class="rs-muted mb-1">alexey@example.ru &nbsp; · &nbsp; +7 (921) 123-45-67</div>
+              <div class="rs-muted mb-1" id="profileContacts">alexey@example.ru &nbsp; · &nbsp; +7 (921) 123-45-67</div>
               <div class="rs-muted rs-small mb-2">На RentSpace с 1 сентября 2026</div>
               <span class="rs-badge badge-green">Почта подтверждена</span>
             </div>
@@ -60,7 +60,7 @@
         <section class="stats-grid">
           <div class="rs-card stat-card">
             <div class="stat-value">
-              2
+              <span id="ownedListingsCount">0</span>
               <span class="stat-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24">
                   <path d="M3 11.5 12 4l9 7.5"></path>
@@ -73,7 +73,7 @@
           </div>
           <div class="rs-card stat-card">
             <div class="stat-value">
-              1
+              <span id="activeRentalsCount">0</span>
               <span class="stat-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24">
                   <circle cx="8" cy="12" r="4"></circle>
@@ -85,7 +85,7 @@
           </div>
           <div class="rs-card stat-card">
             <div class="stat-value">
-              2
+              <span id="pendingBookingsCount">0</span>
               <span class="stat-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24">
                   <circle cx="12" cy="12" r="8.5"></circle>
@@ -111,10 +111,8 @@
         </ul>
         <div class="tab-content">
           <section class="tab-pane fade show active" id="renting">
-            <p class="rs-muted mt-3">
-              1 подтверждённая аренда. Ожидают решения: 1 бронирование и 1 обращение по вашему объекту.
-            </p>
-            <div class="rental-list">
+            <p class="rs-muted mt-3" id="rentingSummary">Загрузка аренд...</p>
+            <div class="rental-list" id="rentalList">
               <article class="rs-card rental-card">
                 <img src="assets/flat-centre.png" alt="Квартира" />
                 <div>
@@ -125,7 +123,7 @@
                   <strong class="d-block fs-5 mt-1">13 500 ₽</strong>
                 </div>
                 <div class="rental-actions">
-                  <a class="btn btn-outline-primary" href="listing.html">Подробнее</a>
+                  <a class="btn btn-outline-primary" href="listing.html?id=1">Подробнее</a>
                   <a class="btn btn-link text-decoration-none" href="activity.html">
                     <img src="assets/message.svg" width="18" alt="" />
                     &nbsp; Написать владельцу
@@ -142,8 +140,11 @@
                   <strong class="d-block fs-5 mt-1">12 000 ₽</strong>
                 </div>
                 <div class="rental-actions">
-                  <a class="btn btn-outline-primary" href="listing.html">Подробнее</a>
-                  <a class="btn btn-link text-decoration-none" href="activity.html">Написать владельцу</a>
+                  <a class="btn btn-outline-primary" href="listing.html?id=6">Подробнее</a>
+                  <a class="btn btn-link text-decoration-none" href="activity.html">
+                    <img src="assets/message.svg" width="18" alt="" />
+                    &nbsp; Написать владельцу
+                  </a>
                 </div>
               </article>
               <article class="rs-card rental-card">
@@ -156,8 +157,11 @@
                   <strong class="d-block fs-5 mt-1">4 400 ₽</strong>
                 </div>
                 <div class="rental-actions">
-                  <a class="btn btn-outline-primary" href="listing.html">Подробнее</a>
-                  <a class="btn btn-link text-decoration-none" href="activity.html">Написать владельцу</a>
+                  <a class="btn btn-outline-primary" href="listing.html?id=5">Подробнее</a>
+                  <a class="btn btn-link text-decoration-none" href="activity.html">
+                    <img src="assets/message.svg" width="18" alt="" />
+                    &nbsp; Написать владельцу
+                  </a>
                 </div>
               </article>
               <article class="rs-card rental-card">
@@ -170,18 +174,21 @@
                   <strong class="d-block fs-5 mt-1">13 500 ₽</strong>
                 </div>
                 <div class="rental-actions">
-                  <a class="btn btn-outline-primary" href="listing.html">Подробнее</a>
-                  <a class="btn btn-link text-decoration-none" href="activity.html">Написать владельцу</a>
+                  <a class="btn btn-outline-primary" href="listing.html?id=1">Подробнее</a>
+                  <a class="btn btn-link text-decoration-none" href="activity.html">
+                    <img src="assets/message.svg" width="18" alt="" />
+                    &nbsp; Написать владельцу
+                  </a>
                 </div>
               </article>
             </div>
           </section>
           <section class="tab-pane fade" id="owned">
             <div class="d-flex justify-content-between align-items-center my-4">
-              <h2 class="fs-5 fw-semibold m-0">Мои объявления · 2</h2>
+              <h2 class="fs-5 fw-semibold m-0" id="ownedListingsTitle">Мои объявления</h2>
               <button class="btn btn-primary">＋ &nbsp; Добавить объект</button>
             </div>
-            <div class="owner-grid">
+            <div class="owner-grid" id="ownerListings">
               <article class="rs-card owner-card">
                 <img src="assets/studio.png" alt="Студия" />
                 <div class="owner-body">
@@ -194,7 +201,7 @@
                   <div class="fs-4 fw-bold mb-2">4 200 ₽ / ночь</div>
                   <div class="rs-muted rs-small mb-3">Входящих заявок: 0</div>
                   <div class="d-flex gap-2">
-                    <a class="btn btn-outline-primary flex-fill" href="listing.html">Посмотреть</a>
+                    <a class="btn btn-outline-primary flex-fill" href="listing.html?id=3">Посмотреть</a>
                     <button class="btn btn-outline-primary flex-fill">Редактировать</button>
                   </div>
                   <button class="btn btn-link w-100 mt-2 text-decoration-none" data-hide-listing>
@@ -214,7 +221,7 @@
                   <div class="fs-4 fw-bold mb-2">90 000 ₽ / месяц</div>
                   <div class="rs-muted rs-small mb-3">Входящих заявок: 1</div>
                   <div class="d-flex gap-2">
-                    <a class="btn btn-outline-primary flex-fill" href="listing.html?mode=monthly">Посмотреть</a>
+                    <a class="btn btn-outline-primary flex-fill" href="listing.html?id=4">Посмотреть</a>
                     <button class="btn btn-outline-primary flex-fill">Редактировать</button>
                   </div>
                   <button class="btn btn-link w-100 mt-2 text-decoration-none" data-hide-listing>
@@ -274,8 +281,9 @@
       </div>
     </div>
     <script src="assets/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="api.js"></script>
-    <script src="app.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/profile.js"></script>
   </body>
 </html>

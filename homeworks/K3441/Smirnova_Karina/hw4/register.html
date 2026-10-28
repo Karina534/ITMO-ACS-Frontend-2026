@@ -19,12 +19,16 @@
       </section>
       <section class="auth-panel">
         <button class="theme-toggle auth-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Включить тёмную тему">
-          <span class="theme-toggle__icon" data-theme-icon aria-hidden="true">☾</span>
+          <svg class="icon icon--fill theme-toggle__icon" data-theme-icon aria-hidden="true" focusable="false">
+            <use href="assets/sprite.svg#moon"></use>
+          </svg>
           <span class="theme-toggle__label" data-theme-label>Тёмная тема</span>
         </button>
         <form id="registerForm" class="auth-form needs-validation" novalidate>
           <a class="rs-brand" href="index.html">
-            <span class="rs-brand-mark"><img src="assets/house.svg" alt="" /></span>
+            <span class="rs-brand-mark">
+              <svg class="icon icon--fill" aria-hidden="true" focusable="false"><use href="assets/sprite.svg#house-door"></use></svg>
+            </span>
             RentSpace
           </a>
           <h2>Регистрация</h2>
@@ -72,7 +76,9 @@
                 aria-describedby="registerPasswordHelp"
                 required
               />
-              <button class="btn password-toggle" type="button" data-password-toggle="registerPassword" aria-label="Показать пароль"><span aria-hidden="true">◉</span></button>
+              <button class="btn password-toggle" type="button" data-password-toggle="registerPassword" aria-label="Показать пароль">
+                <svg class="icon icon--fill" data-password-icon aria-hidden="true" focusable="false"><use href="assets/sprite.svg#eye"></use></svg>
+              </button>
             </div>
             <div class="form-text" id="registerPasswordHelp">Минимум 8 символов</div>
           </div>
@@ -90,7 +96,9 @@
                 aria-describedby="repeatPasswordHelp"
                 required
               />
-              <button class="btn password-toggle" type="button" data-password-toggle="repeatPassword" aria-label="Показать повтор пароля"><span aria-hidden="true">◉</span></button>
+              <button class="btn password-toggle" type="button" data-password-toggle="repeatPassword" aria-label="Показать повтор пароля">
+                <svg class="icon icon--fill" data-password-icon aria-hidden="true" focusable="false"><use href="assets/sprite.svg#eye"></use></svg>
+              </button>
             </div>
             <div class="form-text" id="repeatPasswordHelp">Пароли должны совпадать</div>
           </div>

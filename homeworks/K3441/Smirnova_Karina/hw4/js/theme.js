@@ -24,7 +24,7 @@
     const isDark = theme === 'dark';
     const nextThemeName = isDark ? 'светлую' : 'тёмную';
     const buttonText = isDark ? 'Светлая тема' : 'Тёмная тема';
-    const icon = isDark ? '☀' : '☾';
+    const iconHref = `assets/sprite.svg#${isDark ? 'sun' : 'moon'}`;
 
     document.querySelectorAll('[data-theme-toggle]').forEach((button) => {
       button.setAttribute('aria-pressed', String(isDark));
@@ -34,7 +34,7 @@
       const label = button.querySelector('[data-theme-label]');
       const iconElement = button.querySelector('[data-theme-icon]');
       if (label) label.textContent = buttonText;
-      if (iconElement) iconElement.textContent = icon;
+      if (iconElement) iconElement.querySelector('use')?.setAttribute('href', iconHref);
     });
   }
 

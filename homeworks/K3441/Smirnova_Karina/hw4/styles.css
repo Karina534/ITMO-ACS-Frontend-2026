@@ -233,6 +233,26 @@ a {
   color: var(--rs-danger) !important;
 }
 
+/* SVG sprite icons */
+.icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+}
+.icon--rotate {
+  transform: rotate(90deg);
+}
+.icon--fill {
+  fill: currentColor;
+  stroke: none;
+}
+.btn .icon {
+  width: 18px;
+  height: 18px;
+}
+
 /* Shared navigation */
 .rs-header {
   height: 80px;
@@ -260,9 +280,10 @@ a {
   border-radius: 10px;
   background: var(--rs-primary);
 }
-.rs-brand-mark img {
+.rs-brand-mark .icon {
   width: 21px;
   height: 21px;
+  color: #fff;
 }
 .rs-nav {
   display: flex;
@@ -317,9 +338,7 @@ a {
 }
 .theme-toggle__icon {
   width: 18px;
-  font-size: 18px;
-  line-height: 1;
-  text-align: center;
+  height: 18px;
 }
 .rs-avatar {
   width: 36px;
@@ -455,8 +474,9 @@ a {
   color: var(--rs-muted);
   font-size: 12px;
 }
-.password-toggle img {
+.password-toggle .icon {
   width: 18px;
+  height: 18px;
   opacity: 0.7;
 }
 
@@ -560,7 +580,7 @@ a {
   color: var(--rs-muted);
   font-size: 12px;
 }
-.property-address img {
+.property-address .icon {
   width: 15px;
   height: 15px;
 }
@@ -637,8 +657,9 @@ a {
   margin: 10px 0 14px;
   color: var(--rs-muted);
 }
-.listing-heading .address img {
+.listing-heading .address .icon {
   width: 18px;
+  height: 18px;
 }
 .gallery-grid {
   height: 420px;
@@ -773,14 +794,9 @@ a {
   background: var(--rs-primary-soft);
   border-radius: 10px;
 }
-.stat-icon svg {
+.stat-icon .icon {
   width: 21px;
   height: 21px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
 }
 .rs-tabs {
   margin-top: 28px;
@@ -948,6 +964,10 @@ a {
   color: var(--rs-muted);
   font-size: 10px;
   text-align: right;
+}
+.message-time .icon {
+  width: 14px;
+  height: 14px;
 }
 .chat-compose {
   padding: 16px 24px;

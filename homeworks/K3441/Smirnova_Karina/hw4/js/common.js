@@ -72,6 +72,10 @@ function setupPasswordToggles() {
       input.type = input.type === 'password' ? 'text' : 'password';
       button.setAttribute('aria-label', input.type === 'password' ? 'Показать пароль' : 'Скрыть пароль');
       button.setAttribute('aria-pressed', String(input.type === 'text'));
+
+      const iconUse = button.querySelector('[data-password-icon] use');
+      const iconName = input.type === 'password' ? 'eye' : 'eye-slash';
+      iconUse?.setAttribute('href', `assets/sprite.svg#${iconName}`);
     });
   });
 }

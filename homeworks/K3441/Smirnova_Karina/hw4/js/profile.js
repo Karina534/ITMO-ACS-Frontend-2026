@@ -66,7 +66,7 @@ function setupProfilePage() {
         <div class="rental-actions">
           <a class="btn btn-outline-primary" href="listing.html?id=${listing.id}" aria-label="Подробнее об объекте «${listing.title}»">Подробнее</a>
           <a class="btn btn-link text-decoration-none" href="activity.html">
-            <img src="assets/message.svg" width="18" alt="" />
+            <svg class="icon icon--fill" aria-hidden="true" focusable="false"><use href="assets/sprite.svg#chat-dots"></use></svg>
             &nbsp; Написать владельцу
           </a>
         </div>

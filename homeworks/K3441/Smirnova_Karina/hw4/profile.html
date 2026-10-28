@@ -13,7 +13,9 @@
     <header class="rs-header">
       <div class="rs-container">
         <a class="rs-brand" href="search.html">
-          <span class="rs-brand-mark"><img src="assets/house.svg" alt="" /></span>
+          <span class="rs-brand-mark">
+            <svg class="icon icon--fill" aria-hidden="true" focusable="false"><use href="assets/sprite.svg#house-door"></use></svg>
+          </span>
           RentSpace
         </a>
         <nav class="nav rs-nav" aria-label="Основная навигация">
@@ -23,7 +25,9 @@
         </nav>
         <div class="rs-header-actions">
           <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Включить тёмную тему">
-            <span class="theme-toggle__icon" data-theme-icon aria-hidden="true">☾</span>
+            <svg class="icon icon--fill theme-toggle__icon" data-theme-icon aria-hidden="true" focusable="false">
+              <use href="assets/sprite.svg#moon"></use>
+            </svg>
             <span class="theme-toggle__label" data-theme-label>Тёмная тема</span>
           </button>
           <div class="dropdown">
@@ -57,7 +61,7 @@
               <span class="rs-badge badge-green">Почта подтверждена</span>
             </div>
             <button class="btn btn-outline-primary px-4" type="button" data-bs-toggle="modal" data-bs-target="#profileModal">
-              <img src="assets/pencil.svg" width="18" alt="" />
+              <svg class="icon icon--fill" aria-hidden="true" focusable="false"><use href="assets/sprite.svg#pencil"></use></svg>
               &nbsp; Редактировать профиль
             </button>
           </div>
@@ -68,11 +72,7 @@
             <div class="stat-value">
               <span id="ownedListingsCount">0</span>
               <span class="stat-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d="M3 11.5 12 4l9 7.5"></path>
-                  <path d="M5.5 10v9.5h13V10"></path>
-                  <path d="M9.5 19.5v-6h5v6"></path>
-                </svg>
+                <svg class="icon icon--fill" aria-hidden="true" focusable="false"><use href="assets/sprite.svg#house-door"></use></svg>
               </span>
             </div>
             <div class="rs-muted">Мои объекты</div>
@@ -81,10 +81,7 @@
             <div class="stat-value">
               <span id="activeRentalsCount">0</span>
               <span class="stat-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <circle cx="8" cy="12" r="4"></circle>
-                  <path d="M12 12h9M18 12v3M15 12v2"></path>
-                </svg>
+                <svg class="icon icon--fill" aria-hidden="true" focusable="false"><use href="assets/sprite.svg#key"></use></svg>
               </span>
             </div>
             <div class="rs-muted">Активные аренды</div>
@@ -93,10 +90,7 @@
             <div class="stat-value">
               <span id="pendingBookingsCount">0</span>
               <span class="stat-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="8.5"></circle>
-                  <path d="M12 7.5V12l3 2"></path>
-                </svg>
+                <svg class="icon icon--fill" aria-hidden="true" focusable="false"><use href="assets/sprite.svg#clock"></use></svg>
               </span>
             </div>
             <div class="rs-muted">Ожидают решения</div>
@@ -128,7 +122,7 @@
                 <div class="rental-actions">
                   <a class="btn btn-outline-primary" href="listing.html?id=1" aria-label="Подробнее о современной квартире в центре">Подробнее</a>
                   <a class="btn btn-link text-decoration-none" href="activity.html">
-                    <img src="assets/message.svg" width="18" alt="" />
+                    <svg class="icon icon--fill" aria-hidden="true" focusable="false"><use href="assets/sprite.svg#chat-dots"></use></svg>
                     &nbsp; Написать владельцу
                   </a>
                 </div>
@@ -145,7 +139,7 @@
                 <div class="rental-actions">
                   <a class="btn btn-outline-primary" href="listing.html?id=6" aria-label="Подробнее о квартире у Таврического сада">Подробнее</a>
                   <a class="btn btn-link text-decoration-none" href="activity.html">
-                    <img src="assets/message.svg" width="18" alt="" />
+                    <svg class="icon icon--fill" aria-hidden="true" focusable="false"><use href="assets/sprite.svg#chat-dots"></use></svg>
                     &nbsp; Написать владельцу
                   </a>
                 </div>
@@ -162,7 +156,7 @@
                 <div class="rental-actions">
                   <a class="btn btn-outline-primary" href="listing.html?id=5" aria-label="Подробнее о комнате на Васильевском">Подробнее</a>
                   <a class="btn btn-link text-decoration-none" href="activity.html">
-                    <img src="assets/message.svg" width="18" alt="" />
+                    <svg class="icon icon--fill" aria-hidden="true" focusable="false"><use href="assets/sprite.svg#chat-dots"></use></svg>
                     &nbsp; Написать владельцу
                   </a>
                 </div>
@@ -179,7 +173,7 @@
                 <div class="rental-actions">
                   <a class="btn btn-outline-primary" href="listing.html?id=1" aria-label="Подробнее о современной квартире в центре">Подробнее</a>
                   <a class="btn btn-link text-decoration-none" href="activity.html">
-                    <img src="assets/message.svg" width="18" alt="" />
+                    <svg class="icon icon--fill" aria-hidden="true" focusable="false"><use href="assets/sprite.svg#chat-dots"></use></svg>
                     &nbsp; Написать владельцу
                   </a>
                 </div>
@@ -189,7 +183,10 @@
           <section class="tab-pane fade" id="owned" role="tabpanel" aria-labelledby="ownedTab" tabindex="0">
             <div class="d-flex justify-content-between align-items-center my-4">
               <h2 class="fs-5 fw-semibold m-0" id="ownedListingsTitle">Мои объявления</h2>
-              <button class="btn btn-primary" type="button"><span aria-hidden="true">＋</span> &nbsp; Добавить объект</button>
+              <button class="btn btn-primary" type="button">
+                <svg class="icon icon--fill" aria-hidden="true" focusable="false"><use href="assets/sprite.svg#plus-lg"></use></svg>
+                &nbsp; Добавить объект
+              </button>
             </div>
             <div class="owner-grid" id="ownerListings" aria-busy="true">
               <article class="rs-card owner-card">
@@ -241,7 +238,9 @@
       <div class="rs-container rs-footer-row">
         <div class="rs-footer-brand">
           <a class="rs-brand" href="search.html">
-            <span class="rs-brand-mark"><img src="assets/house.svg" alt="" /></span>
+            <span class="rs-brand-mark">
+              <svg class="icon icon--fill" aria-hidden="true" focusable="false"><use href="assets/sprite.svg#house-door"></use></svg>
+            </span>
             RentSpace
           </a>
           <span class="rs-muted rs-small">Сервис аренды недвижимости</span>

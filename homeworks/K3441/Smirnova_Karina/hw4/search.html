@@ -13,7 +13,9 @@
     <header class="rs-header">
       <div class="rs-container">
         <a class="rs-brand" href="search.html">
-          <span class="rs-brand-mark"><img src="assets/house.svg" alt="" /></span>
+          <span class="rs-brand-mark">
+            <svg class="icon icon--fill" aria-hidden="true" focusable="false"><use href="assets/sprite.svg#house-door"></use></svg>
+          </span>
           RentSpace
         </a>
         <nav class="nav rs-nav" aria-label="Основная навигация">
@@ -23,7 +25,9 @@
         </nav>
         <div class="rs-header-actions">
           <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Включить тёмную тему">
-            <span class="theme-toggle__icon" data-theme-icon aria-hidden="true">☾</span>
+            <svg class="icon icon--fill theme-toggle__icon" data-theme-icon aria-hidden="true" focusable="false">
+              <use href="assets/sprite.svg#moon"></use>
+            </svg>
             <span class="theme-toggle__label" data-theme-label>Тёмная тема</span>
           </button>
           <div class="dropdown">
@@ -72,7 +76,10 @@
               </select>
             </div>
             <div class="col-auto">
-              <button class="btn btn-primary px-4" type="submit"><span aria-hidden="true">⌕</span> &nbsp; Найти</button>
+              <button class="btn btn-primary px-4" type="submit">
+                <svg class="icon icon--fill" aria-hidden="true" focusable="false"><use href="assets/sprite.svg#search"></use></svg>
+                &nbsp; Найти
+              </button>
             </div>
           </div>
           <div class="row g-3 align-items-end mt-1">
@@ -93,7 +100,8 @@
                 aria-expanded="false"
                 aria-controls="extraFilters"
               >
-                <span aria-hidden="true">☷</span> &nbsp; Дополнительные фильтры
+                <svg class="icon icon--fill" aria-hidden="true" focusable="false"><use href="assets/sprite.svg#sliders"></use></svg>
+                &nbsp; Дополнительные фильтры
               </button>
             </div>
             <div class="col-auto">
@@ -133,7 +141,7 @@
               <h3 class="property-title"></h3>
 
               <div class="property-address">
-                <img src="assets/map-pin.svg" alt="" />
+                <svg class="icon icon--fill" aria-hidden="true" focusable="false"><use href="assets/sprite.svg#geo-alt"></use></svg>
                 <span class="property-address-text"></span>
               </div>
 
@@ -175,7 +183,9 @@
       <div class="rs-container rs-footer-row">
         <div class="rs-footer-brand">
           <a class="rs-brand" href="search.html">
-            <span class="rs-brand-mark"><img src="assets/house.svg" alt="" /></span>
+            <span class="rs-brand-mark">
+              <svg class="icon icon--fill" aria-hidden="true" focusable="false"><use href="assets/sprite.svg#house-door"></use></svg>
+            </span>
             RentSpace
           </a>
           <span class="rs-muted rs-small">Сервис аренды недвижимости</span>

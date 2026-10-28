@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Сообщения и сделки — RentSpace</title>
+    <script src="js/theme.js"></script>
     <link href="assets/bootstrap.min.css" rel="stylesheet" />
     <link href="styles.css" rel="stylesheet" />
   </head>
@@ -20,19 +21,25 @@
           <a class="nav-link" href="profile.html">Мои объекты</a>
           <a class="nav-link active" aria-current="page" href="activity.html">Сообщения и сделки</a>
         </nav>
-        <div class="dropdown">
-          <button class="rs-account dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Открыть меню пользователя">
-            <span class="rs-avatar" data-current-user-avatar>АС</span>
-            <span data-current-user-name>Алексей</span>
+        <div class="rs-header-actions">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Включить тёмную тему">
+            <span class="theme-toggle__icon" data-theme-icon aria-hidden="true">☾</span>
+            <span class="theme-toggle__label" data-theme-label>Тёмная тема</span>
           </button>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li>
-              <a class="dropdown-item" href="profile.html">Личный кабинет</a>
-            </li>
-            <li>
-              <a class="dropdown-item text-danger" href="index.html" data-logout>Выйти</a>
-            </li>
-          </ul>
+          <div class="dropdown">
+            <button class="rs-account dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Открыть меню пользователя">
+              <span class="rs-avatar" data-current-user-avatar>АС</span>
+              <span data-current-user-name>Алексей</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <a class="dropdown-item" href="profile.html">Личный кабинет</a>
+              </li>
+              <li>
+                <a class="dropdown-item text-danger" href="index.html" data-logout>Выйти</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </header>

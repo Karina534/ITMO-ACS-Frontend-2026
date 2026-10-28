@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Регистрация — RentSpace</title>
+    <script src="js/theme.js"></script>
     <link href="assets/bootstrap.min.css" rel="stylesheet" />
     <link href="styles.css" rel="stylesheet" />
   </head>
@@ -17,6 +18,10 @@
         </div>
       </section>
       <section class="auth-panel">
+        <button class="theme-toggle auth-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Включить тёмную тему">
+          <span class="theme-toggle__icon" data-theme-icon aria-hidden="true">☾</span>
+          <span class="theme-toggle__label" data-theme-label>Тёмная тема</span>
+        </button>
         <form id="registerForm" class="auth-form needs-validation" novalidate>
           <a class="rs-brand" href="index.html">
             <span class="rs-brand-mark"><img src="assets/house.svg" alt="" /></span>

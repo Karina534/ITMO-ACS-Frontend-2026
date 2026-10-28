@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Моковое API для сервиса аренды недвижимости RentSpace",
   "scripts": {
-    "start": "json-server-auth db.json -r routes.json -s . --port 3000"
+    "start": "json-server-auth db.json -r routes.json -s . --port 3001"
   },
   "dependencies": {
     "axios": "^1.20.0"

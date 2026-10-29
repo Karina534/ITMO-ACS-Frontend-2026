@@ -1,6 +1,6 @@
-// Создаём один экземпляр Axios с общим адресом мокового API.
+// Интерфейс и моковый API обслуживаются одним сервером, поэтому используем текущий origin.
 const api = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: window.location.origin,
   timeout: 5000,
 });
 

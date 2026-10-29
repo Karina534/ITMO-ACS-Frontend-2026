@@ -2,8 +2,6 @@ class NotesApi {
     constructor(instance) {
         this.API = instance
     }
-
-
     getAll = async () => {
         return this.API({
             url: '/notes'
@@ -21,6 +19,4 @@ class NotesApi {
         })
     }
 }
-
-
 export default NotesApi

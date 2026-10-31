@@ -13,20 +13,40 @@ const router = createRouter({
     {
       component: AuthLayout,
       children: [
-        { path: '/login', name: 'login', component: () => import('@/views/LoginView.vue'), meta: { guestOnly: true, title: 'Вход — RentSpace' } },
-        { path: '/register', name: 'register', component: () => import('@/views/RegisterView.vue'), meta: { guestOnly: true, title: 'Регистрация — RentSpace' } },
+        { path: '/login',
+          name: 'login', component: () => import('@/views/LoginView.vue'),
+          meta: { guestOnly: true, title: 'Вход — RentSpace' }
+        },
+        { path: '/register',
+          name: 'register', component: () => import('@/views/RegisterView.vue'),
+          meta: { guestOnly: true, title: 'Регистрация — RentSpace' }
+        },
       ],
     },
     {
       component: DefaultLayout,
       children: [
-        { path: '/search', name: 'search', component: () => import('@/views/SearchView.vue'), meta: { title: 'Поиск недвижимости — RentSpace' } },
-        { path: '/listings/:id', name: 'listing', component: () => import('@/views/ListingView.vue'), meta: { title: 'Объект — RentSpace' } },
-        { path: '/profile', name: 'profile', component: () => import('@/views/ProfileView.vue'), meta: { requiresAuth: true, title: 'Личный кабинет — RentSpace' } },
-        { path: '/activity', name: 'activity', component: () => import('@/views/ActivityView.vue'), meta: { requiresAuth: true, title: 'Сообщения и сделки — RentSpace' } },
+        { path: '/search',
+          name: 'search', component: () => import('@/views/SearchView.vue'),
+          meta: { title: 'Поиск недвижимости — RentSpace' }
+        },
+        { path: '/listings/:id',
+          name: 'listing', component: () => import('@/views/ListingView.vue'),
+          meta: { title: 'Объект — RentSpace' }
+        },
+        { path: '/profile',
+          name: 'profile', component: () => import('@/views/ProfileView.vue'),
+          meta: { requiresAuth: true, title: 'Личный кабинет — RentSpace' }
+        },
+        { path: '/activity',
+          name: 'activity', component: () => import('@/views/ActivityView.vue'),
+          meta: { requiresAuth: true, title: 'Сообщения и сделки — RentSpace' }
+        },
       ],
     },
-    { path: '/:pathMatch(.*)*', redirect: { name: 'search' } },
+    { path: '/:pathMatch(.*)*',
+      redirect: { name: 'search' }
+    },
   ],
 })
 

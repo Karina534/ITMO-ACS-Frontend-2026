@@ -2,6 +2,7 @@
 import { formatTime } from '@/utils/formatters'
 defineProps({ message: { type: Object, required: true }, own: Boolean })
 </script>
+
 <template>
   <div v-if="message.type === 'event'" class="message-event">{{ message.text }}</div>
   <div v-else :class="['message', own ? 'out' : 'in']">
@@ -9,6 +10,7 @@ defineProps({ message: { type: Object, required: true }, own: Boolean })
     ><small>{{ formatTime(message.createdAt) }}</small>
   </div>
 </template>
+
 <style scoped>
 .message {
   max-width: 72%;

@@ -1,6 +1,9 @@
 <script setup>
 defineProps({
-  chat:{type:Object,required:true},
+  chat:{
+    type:Object,
+    required:true
+  },
   active:Boolean
 })
 defineEmits(['select'])

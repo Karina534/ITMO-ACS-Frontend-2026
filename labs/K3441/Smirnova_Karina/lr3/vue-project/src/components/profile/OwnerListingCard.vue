@@ -7,6 +7,7 @@ defineProps({
 })
 defineEmits(['toggle'])
 </script>
+
 <template>
   <article class="rs-card owner-card">
     <img :src="`/${listing.image}`" :alt="listing.title" />
@@ -14,10 +15,11 @@ defineEmits(['toggle'])
       <div class="d-flex gap-2">
         <span :class="['rs-badge', listing.active ? 'badge-green' : 'badge-gray']">{{
           listing.active ? 'Активно' : 'Неактивно'
-        }}</span
-        ><span class="rs-badge badge-blue">{{
-          listing.mode === 'DAILY' ? 'Посуточно' : 'Помесячно'
         }}</span>
+        <span class="rs-badge badge-blue">{{
+          listing.mode === 'DAILY' ? 'Посуточно' : 'Помесячно'
+        }}
+        </span>
       </div>
       <h3>{{ listing.title }}</h3>
       <p class="rs-muted">{{ listing.location }}, {{ listing.address }}</p>
@@ -28,13 +30,14 @@ defineEmits(['toggle'])
       <RouterLink
         class="btn btn-outline-primary w-100"
         :to="{ name: 'listing', params: { id: listing.id } }"
-        >Посмотреть</RouterLink
-      ><button class="btn btn-link w-100" :disabled="pending" @click="$emit('toggle')">
+        >Посмотреть</RouterLink>
+      <button class="btn btn-link w-100" :disabled="pending" @click="$emit('toggle')">
         {{ listing.active ? 'Скрыть объявление' : 'Показать объявление' }}
       </button>
     </div>
   </article>
 </template>
+
 <style scoped>
 .owner-card {
   overflow: hidden;

@@ -6,6 +6,7 @@ defineProps({
 })
 defineEmits(['open-chat', 'cancel'])
 </script>
+
 <template>
   <article v-if="booking.listing" class="rs-card deal-card">
     <img :src="`/${booking.listing.image}`" :alt="booking.listing.title" />
@@ -14,9 +15,11 @@ defineEmits(['open-chat', 'cancel'])
         <span class="rs-badge badge-gray">{{
           Number(booking.listing.userId) === Number(currentUserId) ? 'Владелец' : 'Арендатор'
         }}</span
-        ><span class="rs-muted">{{
+        >
+        <span class="rs-muted">{{
           booking.listing.mode === 'DAILY' ? 'Посуточное бронирование' : 'Помесячная аренда'
-        }}</span>
+        }}
+        </span>
       </div>
       <h3>{{ booking.listing.title }}</h3>
       <p>{{ formatDate(booking.startDate) }} — {{ formatDate(booking.endDate) }}</p>
@@ -25,13 +28,14 @@ defineEmits(['open-chat', 'cancel'])
     <div class="deal-actions">
       <span :class="['rs-badge', getStatusData(booking.status).className]">{{
         getStatusData(booking.status).text
-      }}</span
-      ><RouterLink
+      }}</span>
+      <RouterLink
         class="btn btn-outline-primary"
         :to="{ name: 'listing', params: { id: booking.listing.id } }"
-        >Открыть объект</RouterLink
-      ><button class="btn btn-link" @click="$emit('open-chat')">Перейти в чат</button
-      ><button
+        >Открыть объект
+      </RouterLink>
+      <button class="btn btn-link" @click="$emit('open-chat')">Перейти в чат</button>
+      <button
         v-if="booking.status === 'pending'"
         class="btn btn-outline-danger"
         @click="$emit('cancel')"
@@ -41,6 +45,7 @@ defineEmits(['open-chat', 'cancel'])
     </div>
   </article>
 </template>
+
 <style scoped>
 .deal-card {
   display: grid;

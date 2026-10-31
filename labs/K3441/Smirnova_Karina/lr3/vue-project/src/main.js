@@ -5,6 +5,10 @@ import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
+import { useTheme } from "@/composables/useTheme.js";
+
+const { initializeTheme } = useTheme();
+initializeTheme()
 
 const app = createApp(App)
 

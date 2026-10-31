@@ -6,9 +6,8 @@ defineProps({ booking: { type: Object, required: true } })
   <article v-if="booking.listing" class="rs-card rental-card">
     <img :src="`/${booking.listing.image}`" :alt="booking.listing.title" />
     <div class="rental-body">
-      <span :class="['rs-badge', getStatusData(booking.status).className]">{{
-        getStatusData(booking.status).text
-      }}
+      <span :class="['rs-badge', getStatusData(booking.status).className]"
+        >{{ getStatusData(booking.status).text }}
       </span>
       <h3>{{ booking.listing.title }}</h3>
       <p class="rs-muted">{{ booking.listing.location }}, {{ booking.listing.address }}</p>
@@ -17,13 +16,15 @@ defineProps({ booking: { type: Object, required: true } })
     </div>
     <div class="rental-actions">
       <RouterLink
-        class="btn btn-outline-primary"
+        class="btn btn-primary"
         :to="{ name: 'listing', params: { id: booking.listing.id } }"
-        >Подробнее</RouterLink>
+        >Подробнее</RouterLink
+      >
       <RouterLink
         class="btn btn-link"
         :to="{ name: 'activity', query: { listing: booking.listing.id } }"
-        >Написать владельцу</RouterLink>
+        >Написать владельцу</RouterLink
+      >
     </div>
   </article>
 </template>

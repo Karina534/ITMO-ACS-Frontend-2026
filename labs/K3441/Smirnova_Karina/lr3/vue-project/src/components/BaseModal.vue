@@ -1,5 +1,6 @@
 <script setup>
 import { onBeforeUnmount, onMounted } from 'vue'
+import spriteUrl from '@/assets/sprite.svg'
 
 const props = defineProps({
   modelValue: Boolean,
@@ -23,7 +24,9 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onKeydown))
         <header class="base-modal__header">
           <div><slot name="title" /></div>
           <button class="base-modal__close" type="button" aria-label="Закрыть" @click="close">
-            ×
+            <svg class="base-modal__close-icon" aria-hidden="true" focusable="false">
+              <use :href="`${spriteUrl}#x-lg`" />
+            </svg>
           </button>
         </header>
         <div class="base-modal__body"><slot /></div>
@@ -69,10 +72,19 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onKeydown))
   padding: 22px;
 }
 .base-modal__close {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
   border: 0;
   background: transparent;
   color: var(--rs-text);
-  font-size: 28px;
   cursor: pointer;
+}
+
+.base-modal__close-icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
 }
 </style>

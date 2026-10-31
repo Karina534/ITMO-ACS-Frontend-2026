@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import BaseModal from '@/components/BaseModal.vue'
+import spriteUrl from '@/assets/sprite.svg'
 const props = defineProps({
   images: { type: Array, required: true },
   title: { type: String, required: true },
@@ -39,8 +40,14 @@ function next() {
         aria-label="Предыдущее фото"
         @click="previous"
       >
-        ‹</button
-      ><button class="gallery-control next" aria-label="Следующее фото" @click="next">›</button>
+        <svg class="gallery-control__icon" aria-hidden="true" focusable="false">
+          <use :href="`${spriteUrl}#chevron-left`" />
+        </svg></button
+      ><button class="gallery-control next" aria-label="Следующее фото" @click="next">
+        <svg class="gallery-control__icon" aria-hidden="true" focusable="false">
+          <use :href="`${spriteUrl}#chevron-right`" />
+        </svg>
+      </button>
       <p>{{ index + 1 }} из {{ images.length }}</p>
     </div>
   </BaseModal>
@@ -93,7 +100,13 @@ function next() {
   border-radius: 50%;
   background: rgb(0 0 0 / 60%);
   color: #fff;
-  font-size: 32px;
+  display: grid;
+  place-items: center;
+}
+.gallery-control__icon {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
 }
 .prev {
   left: 10px;

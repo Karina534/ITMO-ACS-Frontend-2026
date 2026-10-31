@@ -16,9 +16,8 @@ defineEmits(['toggle'])
         <span :class="['rs-badge', listing.active ? 'badge-green' : 'badge-gray']">{{
           listing.active ? 'Активно' : 'Неактивно'
         }}</span>
-        <span class="rs-badge badge-blue">{{
-          listing.mode === 'DAILY' ? 'Посуточно' : 'Помесячно'
-        }}
+        <span class="rs-badge badge-blue"
+          >{{ listing.mode === 'DAILY' ? 'Посуточно' : 'Помесячно' }}
         </span>
       </div>
       <h3>{{ listing.title }}</h3>
@@ -28,9 +27,10 @@ defineEmits(['toggle'])
       </div>
       <p class="rs-muted">Входящих заявок: {{ incoming }}</p>
       <RouterLink
-        class="btn btn-outline-primary w-100"
+        class="btn btn-primary w-100"
         :to="{ name: 'listing', params: { id: listing.id } }"
-        >Посмотреть</RouterLink>
+        >Посмотреть</RouterLink
+      >
       <button class="btn btn-link w-100" :disabled="pending" @click="$emit('toggle')">
         {{ listing.active ? 'Скрыть объявление' : 'Показать объявление' }}
       </button>

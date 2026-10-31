@@ -41,8 +41,8 @@ async function logout() {
 }
 
 watch(
-    () => route.fullPath,
-    () => closeMenu(),
+  () => route.fullPath,
+  () => closeMenu(),
 )
 </script>
 
@@ -50,16 +50,12 @@ watch(
   <header class="app-header">
     <div class="rs-container app-header__inner">
       <RouterLink
-          class="app-brand"
-          :to="{ name: 'search' }"
-          aria-label="RentSpace — перейти к поиску"
+        class="app-brand"
+        :to="{ name: 'search' }"
+        aria-label="RentSpace — перейти к поиску"
       >
         <span class="app-brand__mark">
-          <svg
-              class="app-brand__icon"
-              aria-hidden="true"
-              focusable="false"
-          >
+          <svg class="app-brand__icon" aria-hidden="true" focusable="false">
             <use :href="brandIconHref" />
           </svg>
         </span>
@@ -68,24 +64,13 @@ watch(
       </RouterLink>
 
       <nav class="app-navigation" aria-label="Основная навигация">
-        <RouterLink
-            class="app-navigation__link"
-            :to="{ name: 'search' }"
-        >
-          Найти жильё
-        </RouterLink>
+        <RouterLink class="app-navigation__link" :to="{ name: 'search' }"> Найти жильё </RouterLink>
 
-        <RouterLink
-            class="app-navigation__link"
-            :to="{ name: 'profile' }"
-        >
+        <RouterLink class="app-navigation__link" :to="{ name: 'profile' }">
           Мои объекты
         </RouterLink>
 
-        <RouterLink
-            class="app-navigation__link"
-            :to="{ name: 'activity' }"
-        >
+        <RouterLink class="app-navigation__link" :to="{ name: 'activity' }">
           Сообщения и сделки
         </RouterLink>
       </nav>
@@ -93,17 +78,13 @@ watch(
       <div class="app-header__actions">
         <ThemeToggle />
 
-        <div
-            v-if="isAuthenticated"
-            class="user-menu"
-            @keydown.esc.stop="closeMenu"
-        >
+        <div v-if="isAuthenticated" class="user-menu" @keydown.esc.stop="closeMenu">
           <button
-              class="user-menu__trigger"
-              type="button"
-              aria-haspopup="menu"
-              :aria-expanded="isMenuOpen"
-              @click="toggleMenu"
+            class="user-menu__trigger"
+            type="button"
+            aria-haspopup="menu"
+            :aria-expanded="isMenuOpen"
+            @click="toggleMenu"
           >
             <span class="user-avatar">
               {{ userInitials }}
@@ -114,20 +95,18 @@ watch(
             </span>
 
             <span class="user-menu__arrow" aria-hidden="true">
-              ▾
+              <svg class="user-menu__arrow-icon" focusable="false">
+                <use :href="`${spriteUrl}#chevron-down`" />
+              </svg>
             </span>
           </button>
 
-          <div
-              v-if="isMenuOpen"
-              class="user-menu__dropdown"
-              role="menu"
-          >
+          <div v-if="isMenuOpen" class="user-menu__dropdown" role="menu">
             <RouterLink
-                class="user-menu__item"
-                :to="{ name: 'profile' }"
-                role="menuitem"
-                @click="closeMenu"
+              class="user-menu__item"
+              :to="{ name: 'profile' }"
+              role="menuitem"
+              @click="closeMenu"
             >
               Личный кабинет
             </RouterLink>
@@ -135,10 +114,10 @@ watch(
             <div class="user-menu__divider" />
 
             <button
-                class="user-menu__item user-menu__item--danger"
-                type="button"
-                role="menuitem"
-                @click="logout"
+              class="user-menu__item user-menu__item--danger"
+              type="button"
+              role="menuitem"
+              @click="logout"
             >
               Выйти
             </button>
@@ -146,17 +125,9 @@ watch(
         </div>
 
         <div v-else class="guest-actions">
-          <RouterLink
-              class="guest-actions__login"
-              :to="{ name: 'login' }"
-          >
-            Войти
-          </RouterLink>
+          <RouterLink class="guest-actions__login" :to="{ name: 'login' }"> Войти </RouterLink>
 
-          <RouterLink
-              class="guest-actions__register"
-              :to="{ name: 'register' }"
-          >
+          <RouterLink class="guest-actions__register" :to="{ name: 'register' }">
             Регистрация
           </RouterLink>
         </div>
@@ -262,7 +233,14 @@ watch(
 }
 
 .user-menu__arrow {
+  display: inline-flex;
   color: var(--rs-muted);
+}
+
+.user-menu__arrow-icon {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
 }
 
 .user-menu__dropdown {

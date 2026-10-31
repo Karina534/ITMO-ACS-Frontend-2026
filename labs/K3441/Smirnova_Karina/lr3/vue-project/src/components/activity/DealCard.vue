@@ -14,11 +14,9 @@ defineEmits(['open-chat', 'cancel'])
       <div class="d-flex gap-2">
         <span class="rs-badge badge-gray">{{
           Number(booking.listing.userId) === Number(currentUserId) ? 'Владелец' : 'Арендатор'
-        }}</span
-        >
-        <span class="rs-muted">{{
-          booking.listing.mode === 'DAILY' ? 'Посуточное бронирование' : 'Помесячная аренда'
-        }}
+        }}</span>
+        <span class="rs-muted"
+          >{{ booking.listing.mode === 'DAILY' ? 'Посуточное бронирование' : 'Помесячная аренда' }}
         </span>
       </div>
       <h3>{{ booking.listing.title }}</h3>
@@ -30,16 +28,12 @@ defineEmits(['open-chat', 'cancel'])
         getStatusData(booking.status).text
       }}</span>
       <RouterLink
-        class="btn btn-outline-primary"
+        class="btn btn-primary"
         :to="{ name: 'listing', params: { id: booking.listing.id } }"
         >Открыть объект
       </RouterLink>
-      <button class="btn btn-link" @click="$emit('open-chat')">Перейти в чат</button>
-      <button
-        v-if="booking.status === 'pending'"
-        class="btn btn-outline-danger"
-        @click="$emit('cancel')"
-      >
+      <button class="btn btn-primary" @click="$emit('open-chat')">Перейти в чат</button>
+      <button v-if="booking.status === 'pending'" class="btn btn-danger" @click="$emit('cancel')">
         Отменить
       </button>
     </div>

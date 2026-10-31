@@ -90,7 +90,7 @@ onMounted(load)
           <h2>{{ user.name || user.email }}</h2>
           <p>{{ user.email }} · {{ user.phone || 'Телефон не указан' }}</p>
         </div>
-        <button class="btn btn-outline-primary" @click="openEdit">Редактировать профиль</button>
+        <button class="btn btn-primary" @click="openEdit">Редактировать профиль</button>
       </section>
       <section class="stats-grid">
         <article class="rs-card stat-card">

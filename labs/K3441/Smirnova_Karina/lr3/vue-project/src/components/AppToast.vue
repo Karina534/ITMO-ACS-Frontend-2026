@@ -1,4 +1,5 @@
 <script setup>
+import spriteUrl from '@/assets/sprite.svg'
 import { useToast } from '@/composables/useToast.js'
 
 const { message, isVisible, hideToast } = useToast()
@@ -7,22 +8,18 @@ const { message, isVisible, hideToast } = useToast()
 <template>
   <Teleport to="body">
     <Transition name="toast">
-      <div
-          v-if="isVisible"
-          class="app-toast"
-          role="status"
-          aria-live="polite"
-          aria-atomic="true"
-      >
+      <div v-if="isVisible" class="app-toast" role="status" aria-live="polite" aria-atomic="true">
         <span>{{ message }}</span>
 
         <button
-            class="app-toast__close"
-            type="button"
-            aria-label="Закрыть уведомление"
-            @click="hideToast"
+          class="app-toast__close"
+          type="button"
+          aria-label="Закрыть уведомление"
+          @click="hideToast"
         >
-          ×
+          <svg class="app-toast__close-icon" aria-hidden="true" focusable="false">
+            <use :href="`${spriteUrl}#x-lg`" />
+          </svg>
         </button>
       </div>
     </Transition>
@@ -53,18 +50,22 @@ const { message, isVisible, hideToast } = useToast()
   padding: 0;
   color: inherit;
   font: inherit;
-  font-size: 22px;
-  line-height: 1;
   background: transparent;
   border: 0;
   cursor: pointer;
 }
 
+.app-toast__close-icon {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
 .toast-enter-active,
 .toast-leave-active {
   transition:
-      opacity 0.2s ease,
-      transform 0.2s ease;
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
 .toast-enter-from,

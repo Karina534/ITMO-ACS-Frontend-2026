@@ -84,7 +84,7 @@ function selectMode(mode) {
         />
       </div>
       <button
-        class="btn btn-outline-primary"
+        class="btn btn-primary"
         type="button"
         :aria-expanded="expanded"
         @click="expanded = !expanded"
@@ -115,6 +115,19 @@ function selectMode(mode) {
 }
 .filter-row > div {
   width: 180px;
+}
+.filter-row .btn-link:hover,
+.filter-row .btn-link:focus-visible {
+  color: var(--rs-primary);
+  background: var(--rs-primary-soft);
+}
+:global(:root[data-theme='dark']) .filter-row .btn-link:hover,
+:global(:root[data-theme='dark']) .filter-row .btn-link:focus-visible {
+  color: #d4e7ff;
+  background: rgb(158 197 254 / 22%);
+}
+:global(:root[data-theme='dark']) .filter-row .btn-link {
+  color: #8bb9fe;
 }
 .mode-field {
   margin: 0;

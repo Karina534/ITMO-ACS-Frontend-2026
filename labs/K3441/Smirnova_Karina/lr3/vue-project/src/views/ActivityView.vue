@@ -211,7 +211,7 @@ onMounted(load)
               { id: 'canceled', label: 'Отменённые' },
             ]"
             :key="filter.id"
-            :class="['btn', dealFilter === filter.id ? 'btn-primary' : 'btn-outline-primary']"
+            :class="['btn', 'btn-primary', { 'deal-filter--inactive': dealFilter !== filter.id }]"
             @click="dealFilter = filter.id"
           >
             {{ filter.label }}
@@ -316,6 +316,13 @@ onMounted(load)
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 14px;
+}
+.deal-filter--inactive {
+  opacity: 0.72;
+}
+.deal-filter--inactive:hover,
+.deal-filter--inactive:focus-visible {
+  opacity: 1;
 }
 .deals-list {
   display: grid;

@@ -1,7 +1,7 @@
-import http from '@/api/http.js';
+import http from '@/api/http.js'
 
 // Получение всех объявлений с учетом фильтров
-export async function getListings() {
+export async function getListings(filters = {}) {
     const params = {
         active: true,
         mode: filters.mode || undefined,
@@ -20,11 +20,17 @@ export async function getListings() {
         params._sort = 'price';
         params._order = 'desc';
     }
-    const response = await http.get('/listings', params);
-    return response.data;
+    const response = await http.get('/listings', { params })
+    return response.data
 }
 
 // Получение объявления по ID
+export async function getListing(id) {
+    const response = await http.get(`/listings/${id}`)
+    return response.data
+}
+
+// Получение объявлений пользователя
 export async function getUserListings(userId) {
     const response = await http.get(`/listings`, {
         params: {
@@ -35,7 +41,7 @@ export async function getUserListings(userId) {
 }
 
 // Обновление объявления по ID
-export async function updateListings(id, updatedData) {
+export async function updateListing(id, updatedData) {
     const response = await http.patch(`/listings/${id}`, updatedData);
     return response.data;
 }

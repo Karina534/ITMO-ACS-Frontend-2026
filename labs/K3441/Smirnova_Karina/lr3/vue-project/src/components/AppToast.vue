@@ -1,5 +1,5 @@
 <script setup>
-import { useToast } from '@/composables/useToast'
+import { useToast } from '@/composables/useToast.js'
 
 const { message, isVisible, hideToast } = useToast()
 </script>

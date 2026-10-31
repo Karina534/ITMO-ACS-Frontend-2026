@@ -1,17 +1,17 @@
-import http from '@/api/http.j'
+import http from '@/api/http.js'
 
 // Получение всех бронирований
 export async function getBookings() {
     const response = await http.get('/bookings', {
         params: {
-            _expand: 'listings',
+            _expand: 'listing',
         }
     })
     return response.data
 }
 
 // Создание нового бронирования
-export async function createBookings(bookingData) {
+export async function createBooking(bookingData) {
     const response = await http.post('/bookings', bookingData)
     return response.data
 }

@@ -40,7 +40,7 @@ export const useAuthStore = defineStore('auth', () => {
     async function login(credentials) {
         const result = await loginUser(credentials)
 
-        token.value = result.token
+        token.value = result.accessToken
         user.value = createSafeUser(result.user)
 
         localStorage.setItem('accessToken', token.value)
@@ -73,4 +73,4 @@ export const useAuthStore = defineStore('auth', () => {
         updateCurrentUser,
         logout
     }
-}
+})

@@ -18,7 +18,7 @@ function readStoredUser() {
     }
 }
 
-// ?
+// Возвращает копию данных пользователя без пароля.
 function createSafeUser(userData) {
     if (!userData) {
         return null
